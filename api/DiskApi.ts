@@ -4,7 +4,6 @@ export interface Partition {
 }
 
 export function getPartitions(): Promise<Partition[]> {
-        // For now, consider the data is stored on a static `users.json` file
         return fetch('http://192.168.0.14:10000/Disk', {
                 method: 'GET'
                 //Request Type 
