@@ -11,7 +11,7 @@ interface IState {
     Partitions: Partition[]
 }
 
-export default class DiskDataList extends Component<IProps, IState> {
+export default class DiskDataListContainer extends Component<IProps, IState> {
 
     constructor(prop: IProps) {
         super(prop);
