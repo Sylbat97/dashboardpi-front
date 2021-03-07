@@ -1,7 +1,7 @@
 
 import { getPartitions, Partition } from '../../api/DiskApi';
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import PartitionData from './PartitionData';
 
 interface IProps {
@@ -27,9 +27,9 @@ export default class DiskDataList extends Component<IProps, IState> {
 
     render() {
         return (
-            <View>
-                {this.state.Partitions.map(p => <PartitionData partition={p}></PartitionData>)}
-            </View>
+            <ScrollView>
+                {this.state.Partitions.map(p => <PartitionData partition={p} key={p.MountPoint}></PartitionData>)}
+            </ScrollView>
         )
     }
 }
