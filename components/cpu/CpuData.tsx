@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { View, Text, TimerMixin } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import { Cpu, getCpuData } from '../../api/CpuApi';
 import { Dimensions } from "react-native";
+
 const screenWidth = Dimensions.get("window").width;
 
 const chartConfig = {
@@ -63,7 +64,7 @@ export class CpuData extends Component<IProps, IState> {
         this.refreshData();
         setInterval(() => {
             this.refreshData();
-        }, 5000)
+        }, 1000)
     }
     render() {
         if (!this.state.Cpu) {
@@ -71,7 +72,7 @@ export class CpuData extends Component<IProps, IState> {
         }
         return (
             <View>
-                <Text>Temp : {this.state.Cpu.Temp} C°</Text>
+                <Text style={styles.baseText}>Temp : {this.state.Cpu.Temp} C°</Text>
                 <LineChart
                     data={this.data}
                     width={screenWidth}
@@ -88,5 +89,13 @@ export class CpuData extends Component<IProps, IState> {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    baseText: {
+      fontWeight: 'bold',
+      color: 'white'
+    }
+  });
+  
 
 export default CpuData
