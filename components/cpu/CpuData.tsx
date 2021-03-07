@@ -64,7 +64,7 @@ export class CpuData extends Component<IProps, IState> {
         this.refreshData();
         setInterval(() => {
             this.refreshData();
-        }, 1000)
+        }, 2000)
     }
     render() {
         if (!this.state.Cpu) {
