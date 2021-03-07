@@ -2,6 +2,7 @@
 import { getPartitions, Partition } from '../../api/DiskApi';
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
+import PartitionData from './PartitionData';
 
 interface IProps {
 }
@@ -25,11 +26,9 @@ export default class DiskDataList extends Component<IProps, IState> {
     }
 
     render() {
-        console.log('render')
-        console.log(this.state.Partitions)
         return (
             <View>
-                {this.state.Partitions.map(p => <Text>{p.FileSystem} : {p.Percentage}</Text>)}  
+                {this.state.Partitions.map(p => <PartitionData partition={p}></PartitionData>)}
             </View>
         )
     }

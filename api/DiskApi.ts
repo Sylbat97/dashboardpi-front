@@ -1,6 +1,12 @@
 export interface Partition {
+        //kB
+        Avail: number,
         FileSystem: string,
-        Percentage: string
+        MountPoint: string,
+        Percentage: number,
+        Size: number,
+        Type: string,
+        Used: number
 }
 
 export function getPartitions(): Promise<Partition[]> {
